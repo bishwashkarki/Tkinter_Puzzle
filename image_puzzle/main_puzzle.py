@@ -15,7 +15,9 @@ win.geometry("520x520")
 
 #checking if the button works
 def print_if_it_works():
-    print("yes it works")
+    X=250
+    Y=250
+    frame1.place(x=X,y=Y)
 
 
 #creating a frame
@@ -46,13 +48,13 @@ image4=tkinter.PhotoImage(file="images/GIF/main_image_bottom_right.gif")
 #while running:
 #button1
 button1= tkinter.Button(frame1, image=image1, command=print_if_it_works)
-button1.place()
+button1.grid()
 #button2
 button1= tkinter.Button(frame2, image=image2, command=print_if_it_works)
-button1.place()
+button1.grid()
 #button3
 button1= tkinter.Button(frame3, image=image3, command=print_if_it_works)
-button1.place()
+button1.grid()
 #button4
 #button1= tkinter.Button(frame4, image=image4, command=print_if_it_works)
 #button1.place()
