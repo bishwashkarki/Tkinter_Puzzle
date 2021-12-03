@@ -6,7 +6,7 @@ in this file iam creating a fiel that has 2x2 frames that can be moved around a 
 #imoprt modules
 import tkinter
 from tkinter.constants import *
-#from PIL import ImageTk, Image
+
 
 #tkinter settings
 win=tkinter.Tk()
@@ -26,27 +26,51 @@ win.geometry("520x520")
 
 
 #checking if the button works
+#def frame1_exchange():
+#    #how to check postion
+#    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
+#    X1, Y1 = button1.winfo_rootx(), button1.winfo_rooty()
+#    button1.place(x=X1,y=Y1)
+#    button4.place(x=X,y=Y)
+#    
+#
+#def frame2_exchange():
+#    #how to check postion
+#    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
+#    X1, Y1 = button2.winfo_rootx(), button2.winfo_rooty()
+#    button2.place(x=X,y=Y)
+#    button4.place(x=X1,y=Y1)
+#
+#def frame3_exchange():
+#    #how to check postion
+#    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
+#    X1, Y1 = button3.winfo_rootx(), button3.winfo_rooty()
+#    button3.place(x=X,y=Y)
+#    button4.place(x=X1,y=Y1)
+#checking if the button works
 def frame1_exchange():
-    #how to check postion
-    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
-    X1, Y1 = button1.winfo_rootx(), button1.winfo_rooty()
-    button1.place(x=X,y=Y)
-    button4.place(x=X1,y=Y1)
+    
+    X, Y = button4.grid_info().get("row"), button4.grid_info().get("column")
+    X1, Y1 = button1.grid_info().get("row"), button1.grid_info().get("column")
+    if X==X1 or Y==Y1:
+        button1.grid(row=X,column=Y)
+        button4.grid(row=X1,column=Y1)
 
 def frame2_exchange():
     #how to check postion
-    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
-    X1, Y1 = button2.winfo_rootx(), button2.winfo_rooty()
-    button2.place(x=X,y=Y)
-    button4.place(x=X1,y=Y1)
+    X, Y = button4.grid_info().get("row"), button4.grid_info().get("column")
+    X1, Y1 = button2.grid_info().get("row"), button2.grid_info().get("column")
+    if X==X1 or Y==Y1:
+        button2.grid(row=X,column=Y)
+        button4.grid(row=X1,column=Y1)
 
 def frame3_exchange():
     #how to check postion
-    X, Y = button4.winfo_rootx(), button4.winfo_rooty()
-    X1, Y1 = button3.winfo_rootx(), button3.winfo_rooty()
-    button3.place(x=X,y=Y)
-    button4.place(x=X1,y=Y1)
-
+    X, Y = button4.grid_info().get("row"), button4.grid_info().get("column")
+    X1, Y1 = button3.grid_info().get("row"), button3.grid_info().get("column")
+    if X==X1 or Y==Y1:
+        button3.grid(row=X,column=Y)
+        button4.grid(row=X1,column=Y1)
 
 #image_size= 500x500
 """
@@ -60,7 +84,6 @@ image4=tkinter.PhotoImage(file="images/GIF/white250.gif")
 
 #running=True
 #while running:
-#button1
 button1= tkinter.Button(win, image=image1, command=frame1_exchange)
 button1.grid(row=0,column=0)
 #button2
